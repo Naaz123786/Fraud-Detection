@@ -1,8 +1,11 @@
+from pathlib import Path
+
+import joblib
 import pandas as pd
 import streamlit as st
-import joblib 
 
-model = joblib.load("fraud_detection_pipline.pkl")
+_model_path = Path(__file__).resolve().parent / "fraud_detection_pipline.pkl"
+model = joblib.load(_model_path)
 
 st.title("Fraud Detection Prediction App")
 
